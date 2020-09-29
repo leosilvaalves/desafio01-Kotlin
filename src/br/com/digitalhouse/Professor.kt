@@ -1,10 +1,8 @@
 package br.com.digitalhouse
 
-abstract class Professor {
-    val nome:String?= null
-    val sobrenome:String?= null
-    val tempoDeCasa:Int?= null
-    val codigoDeProfessor: Int?= null
+abstract class Professor (open val nome:String,open val sobrenome:String,
+                          open val codigoDeProfessor: Int,open val tempoDeCasa:Int){
+
 
 
     override fun equals(other: Any?): Boolean {

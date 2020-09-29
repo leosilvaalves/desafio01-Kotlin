@@ -1,40 +1,41 @@
 package br.com.digitalhouse
 
 fun main() {
-    val titutar1 = ProfTitutar("João Pedro", "Santos", 1, 0, "JavaScript")
-    val titutar2 = ProfTitutar("Paloma", "Souza", 2, 0, "Modelagem de dados")
 
-    val adjunto1=ProfAdjunto("Italo","Francisco",5,0,30)
-    val adjunto2=ProfAdjunto("Marcia","Matarazzo",6,0,60)
+    val dh=DigitalHouseManager()
 
-    val aluno1=Aluno("Leonardo","Alves",100)
-    val aluno2=Aluno("Luisa","Brito",200)
-    val aluno3=Aluno("Mathias","Alvares",200)
-    val aluno4=Aluno("Cintia","Garcia",300)
-    val aluno5=Aluno("Ricardo","Marques",400)
+    //Registrando professores
+    dh.registrarProfessorTitular("João Pedro", "Santos", 1, "JavaScript")
+    dh.registrarProfessorTitular("Paloma", "Souza", 2, "Modelagem de dados")
 
-    val curso1=Curso()
-    curso1.nome="Full Stack"
-    curso1.codigoDeCurso=20001
-    curso1.qtdeMaximaAlunos=3
-    curso1.profTitutar=titutar1
-    curso1.profAdjunto=adjunto1
+    dh.registrarProfessorAdjunto("Italo","Francisco",5,30)
+    dh.registrarProfessorAdjunto("Marcia","Matarazzo",6,60)
 
+    //Registrando alunos
+    dh.registrarAluno("Leonardo","Alves",100)
+    dh.registrarAluno("Luisa","Brito",200)
+    dh.registrarAluno("Mathias","Alvares",300)
+    dh.registrarAluno("Cintia","Garcia",400)
+    dh.registrarAluno("Ricardo","Marques",500)
 
-    val curso2=Curso()
-    curso2.nome="Android"
-    curso2.codigoDeCurso=20002
-    curso2.qtdeMaximaAlunos=2
-    curso2.profTitutar=titutar2
-    curso2.profAdjunto=adjunto2
+    //Registrando curso e alocando os professores nos cursos
+    dh.registrarCurso("Full Stack",20001,3)
+    dh.alocarProfessores(20001,1,5)
 
+    dh.registrarCurso("Android",20002,2)
+    dh.alocarProfessores(20002,2,6)
 
-    curso1.adicionarUmAluno(aluno1)
-    curso1.adicionarUmAluno(aluno2)
+    //Matriculando os alunos nos cursos
+    dh.matricularAluno(100,20001)
+    dh.matricularAluno(200,20001)
 
-    curso2.adicionarUmAluno(aluno3)
-    curso2.adicionarUmAluno(aluno4)
-    curso2.adicionarUmAluno(aluno5)
+    dh.matricularAluno(300,20002)
+    dh.matricularAluno(400,20002)
+    dh.matricularAluno(500,20002)
+
+    //Verificando em quais cursos o aluno Leonardo está matriculado
+    dh.listaAlunos[0].verificarCurso(dh.listaCursos)
+
 
 
 }
