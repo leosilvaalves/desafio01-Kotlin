@@ -35,7 +35,6 @@ fun main() {
 
     //Verificando em quais cursos o aluno Leonardo está matriculado
     dh.listaAlunos[0].verificarCurso(dh.listaCursos)
-
-
+    
 
 }
